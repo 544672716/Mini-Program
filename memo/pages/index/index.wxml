@@ -1,0 +1,24 @@
+<view>
+  <view class='userimg'>
+  </view>
+  <view>
+    <text class='title1'>全部</text>
+    <text class='title2'>未完成</text>
+    <text class='title3'>已完成</text>
+    <button type="primary" bindtap="addText" class='addButton'> +添加 </button>
+  </view>
+  <view>
+  <text class='cut'></text>
+  </view>
+  <view>
+    <modal hidden="{{hiddenmodalput}}" title="备忘录" confirm-text="提交" cancel-text="重置" bindcancel="cancel" bindconfirm="confirm">  
+      <input value="{{textValue}}" type='text' placeholder="请输入内容" bindinput='getInputText' auto-focus/>
+    </modal> 
+  </view> 
+</view>
+
+<scroll-view scrolly='ture' style='height:200px' enable-back-to-top='ture'>
+
+<text>{{inputValue}}</text>
+
+</scroll-view>

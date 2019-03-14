@@ -1,0 +1,40 @@
+.userimg {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50px;
+  background-color: cyan;
+  margin: 0rpx auto;
+}
+
+.title1 {
+  display: inline-block;
+  /* border: 1rpx solid red; */
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  line-height: 100rpx;
+}
+.title2 {
+  display: inline-block;
+  /* border: 1rpx solid red; */
+  margin-right: 40rpx;
+  line-height: 100rpx;
+}
+.title3 {
+  display: inline-block;
+  /* border: 1rpx solid red; */
+  margin-right: 40rpx;
+  line-height: 100rpx;
+}
+.addButton{
+  display: block;
+  width: 150rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  float: right;
+}
+.cut{
+  display: block;
+  height: 1rpx;
+  width: 100vw;
+  border-bottom: 1rpx solid black;
+}
