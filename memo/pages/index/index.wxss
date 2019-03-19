@@ -1,40 +1,74 @@
-.userimg {
-  width: 150rpx;
+.header {
+  width: 100%;
   height: 150rpx;
-  border-radius: 50px;
+}
+
+.user-image {
+  width: 150rpx;
+  height: 100%;
+  border-radius: 50%;
   background-color: cyan;
   margin: 0rpx auto;
 }
 
-.title1 {
-  display: inline-block;
-  /* border: 1rpx solid red; */
-  margin-left: 40rpx;
-  margin-right: 40rpx;
-  line-height: 100rpx;
+/* 2019-3-19 */
+
+.swiper-tab {
+  width: 100%;
+  border-bottom: 2rpx solid #ccc;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
 }
-.title2 {
-  display: inline-block;
-  /* border: 1rpx solid red; */
-  margin-right: 40rpx;
-  line-height: 100rpx;
+
+.swiper-tab-item {
+  width: 33%;
+  color: #434343;
 }
-.title3 {
-  display: inline-block;
-  /* border: 1rpx solid red; */
-  margin-right: 40rpx;
-  line-height: 100rpx;
+
+.active {
+  color: #f65959;
+  border-bottom: 4rpx solid #f65959;
 }
-.addButton{
-  display: block;
-  width: 150rpx;
-  height: 100rpx;
-  line-height: 100rpx;
-  float: right;
+
+.all-event {
+  width: 100%;
+  height: 1400rpx;
 }
-.cut{
-  display: block;
-  height: 1rpx;
-  width: 100vw;
-  border-bottom: 1rpx solid black;
+
+.event-item {
+  width: 100%;
+  height: 60rpx;
+  margin: 40rpx 0 40rpx 0;
+  padding:0 40rpx 0 40rpx; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.event-content {
+  width: 70%;
+  font-size: 40rpx;
+}
+
+.event-delete {
+  width: 10%;
+}
+
+.event-complete {
+  width: 10%;
+}
+
+.addButton {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.delete-line{
+  text-decoration: line-through
 }

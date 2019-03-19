@@ -1,24 +1,50 @@
 <view>
-  <view class='userimg'>
+  <!-- 头部 -->
+  <view class='header'>
+    <view class='user-image'></view>
   </view>
+
+  <!-- tab栏 -->
   <view>
-    <text class='title1'>全部</text>
-    <text class='title2'>未完成</text>
-    <text class='title3'>已完成</text>
-    <button type="primary" bindtap="addText" class='addButton'> +添加 </button>
+    <view class="swiper-tab">
+      <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="changeTab">全部</view>
+      <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="changeTab">待办</view>
+      <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="changeTab">已完成</view>
+    </view>
+    <swiper current="{{currentTab}}" bindchange="swiperTab">
+      <swiper-item class='swiper-item'>
+        <view class='all-event'>
+          <view class='event-item' wx:for="{{allEvents}}" wx:key="item.id">
+            <text class="event-content {{item.isComplete?'delete-line':''}}">{{item.content}}</text>
+            <icon wx:if="{{!item.isComplete}}" type='success' data-id="{{item.id}}" class='event-complete' bindtap="completeEvent"></icon>
+            <icon type='cancel' data-id="{{item.id}}" class='event-delete' bindtap="deleteEvent"></icon>
+          </view>
+        </view>
+      </swiper-item>
+
+      <swiper-item class='swiper-item'>
+        <view class='event-item' wx:for="{{todoEvents}}" wx:key="item.id">
+          <text class='event-content'>{{item.content}}</text>
+          <icon wx:if="{{!item.isComplete}}" type='success' data-id="{{item.id}}" class='event-complete' bindtap="completeEvent"></icon>
+          <icon type='cancel' data-id="{{item.id}}" class='event-delete' bindtap="deleteEvent"></icon>
+        </view>
+      </swiper-item>
+
+      <swiper-item class='swiper-item'>
+        <view class='event-item' wx:for="{{completeEvent}}" wx:key="item.id">
+          <text class='event-content'>{{item.content}}</text>
+          <icon wx:if="{{!item.isComplete}}" type='success' data-id="{{item.id}}" class='event-complete' bindtap="completeEvent"></icon>
+          <icon type='cancel' data-id="{{item.id}}" class='event-delete' bindtap="deleteEvent"></icon>
+        </view>
+      </swiper-item>
+    </swiper>
   </view>
+
+  <!-- 添加按钮弹窗 -->
+  <button type="primary" bindtap='addEvents' class='addButton'>添加待办事项</button>
   <view>
-  <text class='cut'></text>
+    <modal hidden="{{isInputModalHidden}}" title="添加备忘录" bindcancel="addModalCancel" bindconfirm="addModalConfirm">
+      <input type='text' placeholder="请输入" value="{{addInputValue}}" bindinput='getInputValue' />
+    </modal>
   </view>
-  <view>
-    <modal hidden="{{hiddenmodalput}}" title="备忘录" confirm-text="提交" cancel-text="重置" bindcancel="cancel" bindconfirm="confirm">  
-      <input value="{{textValue}}" type='text' placeholder="请输入内容" bindinput='getInputText' auto-focus/>
-    </modal> 
-  </view> 
 </view>
-
-<scroll-view scrolly='ture' style='height:200px' enable-back-to-top='ture'>
-
-<text>{{inputValue}}</text>
-
-</scroll-view>
